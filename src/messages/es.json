@@ -1,0 +1,53 @@
+{
+  "HomePage": {
+    "title": "Demostración de internacionalización de Next.js",
+    "welcome": {
+      "title": "Bienvenido a nuestra aplicación",
+      "message": "Esta es una demostración de cómo integrar next-intl para internacionalización, next-themes para soporte de modo oscuro y shadcn/ui para componentes hermosos en una aplicación Next.js.",
+      "action": "Comenzar"
+    },
+    "features": {
+      "title": "Características",
+      "list": {
+        "internationalization": "Soporte multiidioma con next-intl",
+        "theming": "Modo oscuro/claro con next-themes",
+        "components": "Hermosos componentes con shadcn/ui",
+        "performance": "Optimizado para rendimiento"
+      },
+      "internationalization": {
+        "title": "Internacionalización",
+        "description": "Soporte para múltiples idiomas",
+        "details": "Agregue fácilmente soporte para múltiples idiomas con la biblioteca next-intl."
+      },
+      "theming": {
+        "title": "Temas",
+        "description": "Soporte para modo oscuro y claro",
+        "details": "Cambie entre modo oscuro y claro con detección de preferencia del sistema."
+      },
+      "components": {
+        "title": "Componentes de UI",
+        "description": "Hermosos componentes shadcn/ui",
+        "details": "Componentes accesibles preconstruidos que funcionan perfectamente con next-themes."
+      }
+    },
+    "tabs": {
+      "welcome": "Bienvenida",
+      "features": "Características",
+      "demo": "Demostración de componentes"
+    },
+    "demo": {
+      "title": "Demostración de componentes",
+      "primary": "Primario",
+      "secondary": "Secundario",
+      "outline": "Contorno",
+      "destructive": "Destructivo",
+      "ghost": "Fantasma",
+      "link": "Enlace"
+    },
+    "theme": {
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema"
+    }
+  }
+}

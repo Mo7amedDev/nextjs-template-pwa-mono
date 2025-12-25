@@ -1,0 +1,77 @@
+{
+  "HomePage": {
+    "title": "Next.js Internationalization Demo",
+    "welcome": {
+      "title": "Welcome to our application",
+      "message": "This is a demo of how to integrate next-intl for internationalization, next-themes for dark mode support, and shadcn/ui for beautiful components in a Next.js application.",
+      "action": "Get Started"
+    },
+    "features": {
+      "title": "Features",
+      "list": {
+        "internationalization": "Multi-language support with next-intl",
+        "theming": "Dark/light mode with next-themes",
+        "components": "Beautiful components with shadcn/ui",
+        "performance": "Performance optimized"
+      },
+      "internationalization": {
+        "title": "Internationalization",
+        "description": "Multi-language support",
+        "details": "Easily add support for multiple languages with the next-intl library."
+      },
+      "theming": {
+        "title": "Themes",
+        "description": "Dark and light mode support",
+        "details": "Switch between dark and light mode with system preference detection."
+      },
+      "components": {
+        "title": "UI Components",
+        "description": "Beautiful shadcn/ui components",
+        "details": "Pre-built accessible components that work perfectly with next-themes."
+      }
+    },
+    "tabs": {
+      "welcome": "Welcome",
+      "features": "Features",
+      "demo": "Component Demo"
+    },
+    "demo": {
+      "title": "Component Demo",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "outline": "Outline",
+      "destructive": "Destructive",
+      "ghost": "Ghost",
+      "link": "Link"
+    }
+  },
+  "DashboardLayout": {
+    "header": {
+      "searchPlaceholder": "Search...",
+      "upgradeNow": "Upgrade Now",
+      "menu": "Menu"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "inventory": "Inventory",
+      "purchase": "Purchase",
+      "invoices": "Invoices",
+      "createInvoice": "Create Invoice",
+      "clients": "Clients",
+      "lowStock": "Low Stock",
+      "analytics": "Analytics",
+      "reports": "Reports",
+      "settings": "Settings",
+      "logout": "Logout",
+      "expand": "Expand sidebar",
+      "collapse": "Collapse sidebar",
+      "close": "Close sidebar",
+      "navigation": "Navigation"
+    }
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
+}

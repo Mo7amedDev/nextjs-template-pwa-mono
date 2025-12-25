@@ -1,0 +1,53 @@
+{
+  "HomePage": {
+    "title": "عرض توطين Next.js",
+    "welcome": {
+      "title": "مرحبًا بكم في تطبيقنا",
+      "message": "هذا عرض توضيحي لكيفية دمج next-intl للتوطين، next-themes لدعم الوضع الداكن، و shadcn/ui للمكونات الجميلة في تطبيق Next.js.",
+      "action": "ابدأ الآن"
+    },
+    "features": {
+      "title": "الميزات",
+      "list": {
+        "internationalization": "دعم متعدد اللغات مع next-intl",
+        "theming": "وضع داكن/فاتح مع next-themes",
+        "components": "واجهة مستخدم جميلة مع shadcn/ui",
+        "performance": "مُحسّن للأداء"
+      },
+      "internationalization": {
+        "title": "التوطين",
+        "description": "دعم للغات متعددة",
+        "details": "أضف بسهولة دعمًا للغات متعددة مع مكتبة next-intl."
+      },
+      "theming": {
+        "title": "السمات",
+        "description": "دعم الوضع الداكن والفاتح",
+        "details": "تبديل بين الوضع الداكن والفاتح مع كشف تفضيلات النظام."
+      },
+      "components": {
+        "title": "مكونات واجهة المستخدم",
+        "description": "مكونات shadcn/ui جميلة",
+        "details": "مكونات مسبقة الصنع سهلة الوصول تعمل بشكل مثالي مع next-themes."
+      }
+    },
+    "tabs": {
+      "welcome": "مرحبًا",
+      "features": "الميزات",
+      "demo": "عرض المكونات"
+    },
+    "demo": {
+      "title": "عرض المكونات",
+      "primary": "أساسي",
+      "secondary": "ثانوي",
+      "outline": "محدد",
+      "destructive": "مدمر",
+      "ghost": "شبح",
+      "link": "رابط"
+    },
+    "theme": {
+      "light": "فاتح",
+      "dark": "داكن",
+      "system": "النظام"
+    }
+  }
+}

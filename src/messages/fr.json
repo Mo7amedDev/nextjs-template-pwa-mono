@@ -1,0 +1,77 @@
+{
+  "HomePage": {
+    "title": "Démonstration Next.js Internationalisation",
+    "welcome": {
+      "title": "Bienvenue dans notre application",
+      "message": "Ceci est une démonstration de la façon d'intégrer next-intl pour l'internationalisation, next-themes pour la prise en charge du mode sombre et shadcn/ui pour de beaux composants dans une application Next.js.",
+      "action": "Commencer"
+    },
+    "features": {
+      "title": "Fonctionnalités",
+      "list": {
+        "internationalization": "Prise en charge multilingue avec next-intl",
+        "theming": "Mode sombre/clair avec next-themes",
+        "components": "Beaux composants avec shadcn/ui",
+        "performance": "Optimisé pour les performances"
+      },
+      "internationalization": {
+        "title": "Internationalisation",
+        "description": "Prise en charge de plusieurs langues",
+        "details": "Ajoutez facilement la prise en charge de plusieurs langues avec la bibliothèque next-intl."
+      },
+      "theming": {
+        "title": "Thèmes",
+        "description": "Prise en charge des modes sombre et clair",
+        "details": "Passez du mode sombre au mode clair avec la détection des préférences système."
+      },
+      "components": {
+        "title": "Composants UI",
+        "description": "Beaux composants shadcn/ui",
+        "details": "Composants accessibles préconstruits qui fonctionnent parfaitement avec next-themes."
+      }
+    },
+    "tabs": {
+      "welcome": "Bienvenue",
+      "features": "Fonctionnalités",
+      "demo": "Démo de composants"
+    },
+    "demo": {
+      "title": "Démo de composants",
+      "primary": "Primaire",
+      "secondary": "Secondaire",
+      "outline": "Contour",
+      "destructive": "Destructif",
+      "ghost": "Fantôme",
+      "link": "Lien"
+    }
+  },
+  "DashboardLayout": {
+    "header": {
+      "searchPlaceholder": "Rechercher...",
+      "upgradeNow": "Mettre à niveau",
+      "menu": "Menu"
+    },
+    "sidebar": {
+      "dashboard": "Tableau de bord",
+      "inventory": "Inventaire",
+      "purchase": "Achat",
+      "invoices": "Factures",
+      "createInvoice": "Créer une facture",
+      "clients": "Clients",
+      "lowStock": "Stock faible",
+      "analytics": "Analytiques",
+      "reports": "Rapports",
+      "settings": "Paramètres",
+      "logout": "Déconnexion",
+      "expand": "Développer la barre latérale",
+      "collapse": "Réduire la barre latérale",
+      "close": "Fermer la barre latérale",
+      "navigation": "Navigation"
+    }
+  },
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  }
+}
