@@ -1,6 +1,6 @@
 // apps/my-app/app/upload/page.tsx
 
-import { deleteFileAction, replaceFileAction, uploadFileAction } from "@/actions/files";
+import { deleteFileAction, replaceFileAction, uploadFileAction } from "@/actions/filesHandlerAction";
 
  
 export default function UploadPage() {

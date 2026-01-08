@@ -1,0 +1,29 @@
+
+
+> nextjs-template@0.1.0 build /home/simo/turbo-bash/monorepo-template/apps/nextjs-template
+> next build
+
+[1m[38;2;173;127;168m▲ Next.js 16.1.1[39m[22m (Turbopack)
+- Environments: .env
+
+[37m[1m [22m[39m Creating an optimized production build ...
+[32m[1m✓[22m[39m Compiled successfully in 3.5s
+[37m[1m [22m[39m Skipping validation of types
+[?25l[37m[1m [22m[39m Collecting page data using 15 workers  [36m.[39m[2K[1G[37m[1m [22m[39m Collecting page data using 15 workers  [36m..[39m[2K[1G[37m[1m [22m[39m Collecting page data using 15 workers  [36m...[39m[2K[1G[37m[1m [22m[39m Collecting page data using 15 workers  [36m.[39m[2K[1G[?25h[37m[1m [22m[39m Collecting page data using 15 workers in 1022.8ms    [32m[1m✓[22m[39m Collecting page data using 15 workers in 1022.8ms 
+[?25l[37m[1m [22m[39m Generating static pages using 15 workers (0/15)  [36m[    ][39m[2K[1G[37m[1m [22m[39m Generating static pages using 15 workers (0/15)  [36m[=   ][39m[2K[1G[37m[1m [22m[39m Generating static pages using 15 workers (9/15)  [36m[==  ][39m[2K[1G[?25h[32m[1m✓[22m[39m Generating static pages using 15 workers (15/15) in 444.9ms
+[?25l[37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G[?25h[37m[1m [22m[39m Finalizing page optimization in 7.8ms    [32m[1m✓[22m[39m Finalizing page optimization in 7.8ms 
+
+[4mRoute (app)[24m
+┌ ○ /_not-found
+├ ƒ /[locale]
+├ ƒ /[locale]/dashboard
+├ ƒ /[locale]/upload
+└ ƒ /api/auth/[...nextauth]
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+[?25h

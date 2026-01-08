@@ -9,7 +9,7 @@ import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Lang
 export default function HomePage() {
   const t = useTranslations('HomePage');
   const { theme, setTheme } = useTheme();
-
+  
   return (
     <div className="container mx-auto p-6 space-y-8">
       <header className="flex justify-between items-center">

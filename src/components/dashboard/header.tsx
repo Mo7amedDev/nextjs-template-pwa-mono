@@ -1,75 +1,55 @@
 'use client';
 
-import { useState } from "react";
-import { ListStartIcon, Menu, Settings } from "lucide-react";
-import { Button, ThemeSelector, LanguageSelector, Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@repo/ui";
-import { useTranslations } from 'next-intl';
-import NavLinks from './nav-links'; // Import your existing NavLinks component
+import { Button, LanguageSelector, MobileSidebar, SideBarTrigger, ThemeSelector } from '@repo/ui';
+import { Menu, PanelLeft, PanelRight } from 'lucide-react';
 
-export function Logo() {
-    return <div>My Logo</div>
+import React from 'react';
+
+interface HeaderProps {
+    title?: string;
+    leftSidebarMobileContent?: React.ReactNode;
+    rightSidebarMobileContent?: React.ReactNode;
 }
+//'hidden min-[900px]:inline-flex',
+export default function Header({
+    title,
+    leftSidebarMobileContent,
+    rightSidebarMobileContent,
 
-export default function Header() {
-    const [open, setOpen] = useState(false);
-    const t = useTranslations('DashboardLayout.header');
-    const tSidebar = useTranslations('DashboardLayout.sidebar');
-    const tTheme = useTranslations('theme');
-    
-    // Prepare theme translations
-    const themeTranslations = {
-        light: tTheme('light'),
-        dark: tTheme('dark'),
-        system: tTheme('system')
-    };
-
+}: HeaderProps) {
     return (
-        <header className="sticky top-0 z-40 w-full border-b bg-background px-4 py-3 flex items-center justify-between">
-            <div className='flex items-center gap-2'>
-                <div className="md:hidden">
-                    <Sheet open={open} onOpenChange={setOpen}>
-                        <SheetTrigger asChild>
-                            <button className="p-2 rounded-md border hover:bg-muted">
-                                <Menu className="h-5 w-5" />
-                                <span className="sr-only">Open menu</span>
-                            </button>
-                        </SheetTrigger>
-                        <SheetContent side="left" className="w-64 p-0">
-                            <SheetHeader className="border-b p-4">
-                                <SheetTitle>{tSidebar('navigation')}</SheetTitle>
-                            </SheetHeader>
-                            <div className='flex flex-col h-full justify-between'>
-                                <nav className="flex-1 overflow-y-auto py-4">
-                                    <div className="flex flex-col gap-1 px-4">
-                                        {/* Use the existing NavLinks component */}
-                                        <NavLinks isCollapsed={false} />
-                                    </div>
-                                </nav>
-                                <div className="border-t p-4">
-                                    <Button 
-                                        variant="ghost" 
-                                        className="w-full justify-start gap-2"
-                                        onClick={() => setOpen(false)}
-                                    >
-                                        <Settings size={20} />
-                                        <span>{tSidebar('settings')}</span>
-                                    </Button>
-                                </div>
-                            </div>
-                        </SheetContent>
-                    </Sheet>
+        <header className="top-0 z-50 flex h-16 py-3 w-full items-center justify-between border-b bg-background px-4">
+            {/* Left Section */}
+            <div className="flex items-center gap-4">
+                {/* Mobile Menu Button - Only on small screens */}
+
+                {leftSidebarMobileContent && <MobileSidebar side='left'>{leftSidebarMobileContent}</MobileSidebar>}
+
+                {/* Desktop Left Sidebar Toggle - Only on medium+ screens */}
+                <div className='lg:block hidden'>
+                    <SideBarTrigger side='left' />
                 </div>
-                <div className='hidden md:block'>
-                    <Logo />
-                </div>
+
+
+                {/* Title */}
+                {title && (
+                    <h1 className="text-lg font-semibold md:text-xl">{title}</h1>
+                )}
             </div>
-            <div className='flex gap-2 items-center'>
-                <Button>
-                    <ListStartIcon className="h-4 w-4" />
-                    {t('upgradeNow')}
-                </Button>
-                <ThemeSelector translations={themeTranslations} />
-                <LanguageSelector />
+
+            {/* Right Section */}
+            <div className="flex items-center gap-2">
+                <div className='flex gap-2 me-4'>
+                    <ThemeSelector />
+                    <LanguageSelector />
+                </div>
+                {/* Desktop Right Sidebar Toggle - Only on medium+ screens */}
+                {rightSidebarMobileContent &&
+                    <MobileSidebar side='right' className='block min-w-[1350px]:hidden' >
+                        {rightSidebarMobileContent}
+                    </MobileSidebar>}
+                <SideBarTrigger side='right' className='hidden min-w-[1350px]:block' />
+
             </div>
         </header>
     );

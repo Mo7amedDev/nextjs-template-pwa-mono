@@ -1,21 +1,38 @@
-import DashboardSidebar from "@/components/dashboard/dashboard-sidebar"
-import Header from "@/components/dashboard/header"
-import { getServerSession } from "next-auth"
-import { redirect } from "next/navigation"
+import { LeftSideBarContent, RightSidebarContent } from "@/components/dashboard/desktopSidebar";
+import Header from "@/components/dashboard/header";
+import { DashboardLayout1, DashboardLayout2 } from "@/components/dashboard/layouts";
+import { DesktopSidebarWrapper, SidebarProvider } from "@repo/ui";
+import { ReactNode } from "react";
 
-export default async function PublicLayout({children}:{children: React.ReactNode,}
-) {
-
-    
+const triggersSidebarState = [
+    { isOpen: true, side: 'left' },
+    { isOpen: false, side: 'right' }
+]
+export default function DashboardLayout({ children }: { children: ReactNode }) {
+    const leftSideBarContent = <LeftSideBarContent/>
+    const rightSideBarContent = <RightSidebarContent/>
     return (
-        <div className="h-screen flex flex-col">
-            <Header />
-            <div className="flex flex-1 overflow-hidden">
-                <DashboardSidebar />
-                <main className="flex-1 flex-col overflow-y-auto p-4 md:p-6">
-                    {children}
-                </main>
-            </div>
-        </div>
+        <SidebarProvider
+            triggersState={triggersSidebarState}
+        >
+            <DashboardLayout1
+                header={<Header 
+                leftSidebarMobileContent={leftSideBarContent}
+                rightSidebarMobileContent={rightSideBarContent}
+                />}
+                leftDesktopSidebar={
+                    <DesktopSidebarWrapper dwClose={40}>
+                       {leftSideBarContent}
+                    </DesktopSidebarWrapper>
+                }
+                rightDesktopSidebar={
+                    <DesktopSidebarWrapper side="right" className="hidden min-w-[1350px]:block">
+                        {rightSideBarContent}
+                    </DesktopSidebarWrapper>
+                }
+            >
+                {children}
+            </DashboardLayout1>
+        </SidebarProvider>
     )
 }
