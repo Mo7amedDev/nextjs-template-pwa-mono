@@ -5,10 +5,11 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@repo/ui';
 import { Mail, Lock, User, Eye, EyeOff, AlertCircle, Brain } from 'lucide-react';
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
 
 export default function SignUpPage() {
   const router = useRouter();
-  
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,6 +27,7 @@ export default function SignUpPage() {
       return;
     }
     setIsLoading(true);
+
     try {
       const response = await fetch('/api/auth/register', {
         method: 'POST',
@@ -33,12 +35,25 @@ export default function SignUpPage() {
         body: JSON.stringify({ name, email, password }),
       });
 
-      if (response.ok) {
-        router.push('/auth/signin?registered=true');
-      } else {
+      if (!response.ok) {
         const data = await response.json();
         setError(data.error || 'Registration failed');
+        return;
       }
+
+      // Automatically sign in
+      const result = await signIn('credentials', {
+        redirect: false,
+        email,
+        password,  // credentials provider usually requires password
+      });
+
+      if (result?.error) {
+        setError(result.error);
+      } else {
+        router.push('/dashboard'); // logged in successfully
+      }
+
     } catch (error) {
       setError('An unexpected error occurred');
       console.error('Sign up error:', error);
@@ -173,8 +188,8 @@ export default function SignUpPage() {
           <div className="mt-6 text-center">
             <p className="text-sm text-muted-foreground">
               Already have an account?{' '}
-              <Link 
-                href="/auth/signin" 
+              <Link
+                href="/auth/signin"
                 className="text-primary hover:text-primary/80 font-medium transition-colors"
               >
                 Sign in
