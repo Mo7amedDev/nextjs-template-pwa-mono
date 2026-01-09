@@ -12,6 +12,7 @@
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/storage-r2": "workspace:*",
+    "@repo/utility": "workspace:*",
     "@repo/ui": "workspace:*",
     "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",

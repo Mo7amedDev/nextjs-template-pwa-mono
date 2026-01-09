@@ -43,7 +43,7 @@ export default async function LocaleLayout({
     const messages = await getMessages();
     const session = await getServerAuthSession();
     const users = await prisma.user.findMany();
-    console.log(session,users,'ddddddddddddddd');
+    //console.log(session,users,'ddddddddddddddd');
 
     return (
         <html lang={locale} suppressHydrationWarning>

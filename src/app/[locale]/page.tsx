@@ -5,18 +5,32 @@ import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, LanguageSelector, Tabs, TabsContent, TabsList, TabsTrigger, ThemeSelector } from '@repo/ui';
+import { useEffect } from 'react';
+import { api } from '@repo/utility';
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
   const { theme, setTheme } = useTheme();
-  
+
+  useEffect(() => {
+    api.get<{
+      success:boolean;
+      data:any[];
+    }>('/api/testData',{next:{revalidate:10}}).then((res)=>{
+      console.log(res,'vvvvvvvv');
+    });
+
+    
+
+  },[])
+
   return (
     <div className="container mx-auto p-6 space-y-8">
       <header className="flex justify-between items-center">
         <h1 className="text-3xl font-bold bg-amber-600">{t('title')}</h1>
         <div className="flex gap-2">
-          <LanguageSelector/>
-          <ThemeSelector/>
+          <LanguageSelector />
+          <ThemeSelector />
           <Button>Hello world</Button>
         </div>
       </header>
