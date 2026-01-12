@@ -66,11 +66,10 @@ export async function fileAction(payload: FileActionPayload): Promise<FileAction
 }
 
 
-const ALLOWED_PATHS_R2 = ["/uploads", "/chatbot", "ai/images"] as const;
-
+ 
 interface UploadFileOptions {
   files: File[];
-  folderPath?: string;
+  folderName?: 'chatbot'|'ai/images/' | 'customer-support-agent';
 }
 interface UploadFilesResult {
   success: boolean;
@@ -98,7 +97,7 @@ interface UploadFilesResult {
   ]
  */
 
-export async function uploadFilesAction({ files, folderPath = "/uploads" }: UploadFileOptions): Promise<UploadFilesResult> {
+export async function uploadFilesAction({ files, folderName = "customer-support-agent" }: UploadFileOptions): Promise<UploadFilesResult> {
   if (!files || files.length === 0) {
     return { success: false, error: "At least one file is required" };
   }
@@ -113,13 +112,7 @@ export async function uploadFilesAction({ files, folderPath = "/uploads" }: Uplo
 
   const userId = session.user.id;
 
-  // Normalize folder path (remove trailing slash)
-  const normalizedFolder = folderPath.replace(/\/+$/, "");
-
-  // Validate folder path
-  if (!ALLOWED_PATHS_R2.includes(normalizedFolder as typeof ALLOWED_PATHS_R2[number])) {
-    return { success: false, error: `Invalid folder path "${folderPath}". Allowed paths: ${ALLOWED_PATHS_R2.join(", ")}` };
-  }
+  
 
   try {
     // Upload files with unique keys and save to DB
@@ -127,14 +120,14 @@ export async function uploadFilesAction({ files, folderPath = "/uploads" }: Uplo
       files.map(async (file) => {
         const uuid = crypto.randomUUID();
         const sanitizedName = file.name.replace(/\s+/g, "-");
-        const key = `${normalizedFolder}/${uuid}-${sanitizedName}`;
+        const key = `${folderName}/${uuid}-${sanitizedName}`;
 
         // 1️⃣ Upload to R2
         await uploadFileToR2(file, key);
         const url = getPublicUrl(key);
 
         // 2️⃣ Save metadata to database
-        const fileRecord = await prisma.file.create({
+        /* const fileRecord = await prisma.file.create({
           data: {
             key,
             url,
@@ -144,13 +137,13 @@ export async function uploadFilesAction({ files, folderPath = "/uploads" }: Uplo
             folder: normalizedFolder,
             userId,
           },
-        });
+        }); */
 
         return {
-          id: fileRecord.id,
-          key: fileRecord.key,
-          url: fileRecord.url,
-          name: fileRecord.name,
+          id:uuid,
+          key: key,
+          url: url,
+          name: file.name,
         };
       })
     );
