@@ -2,11 +2,12 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useTheme } from 'next-themes';
-
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, LanguageSelector, Tabs, TabsContent, TabsList, TabsTrigger, ThemeSelector } from '@repo/ui';
+ 
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, LanguageSelector, Tabs, TabsContent, TabsList, TabsTrigger, ThemeSelector, useTheme } from '@repo/ui';
 import { useEffect } from 'react';
 import { api } from '@repo/utility';
+import MarkdownAIComponent from '@/components/markdownComponent';
+
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
@@ -20,21 +21,19 @@ export default function HomePage() {
       console.log(res,'vvvvvvvv');
     });
 
-    
-
   },[])
-
+console.log( 'vvvvvvvv',theme);
   return (
-    <div className="container mx-auto p-6 space-y-8">
+    <div className="container mx-auto p-6   space-y-8  min-[500px]:max-[700px]:bg-amber-600">
       <header className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold bg-amber-600">{t('title')}</h1>
+        <h1 className="text-3xl bg-background/30 font-bold bg-amber-600 dark:bg-green-400">{t('title')}</h1>
         <div className="flex gap-2">
           <LanguageSelector />
           <ThemeSelector />
           <Button>Hello world</Button>
         </div>
       </header>
-
+      <MarkdownAIComponent  />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader>
